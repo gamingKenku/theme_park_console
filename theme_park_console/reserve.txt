@@ -1,0 +1,44 @@
+﻿public bool Remove(T data)
+        {
+            Node<T> current = Head;
+
+            while (current != null)
+            {
+                if (current.Data.Equals(data))
+                {
+                    break;
+                }
+                else
+                {
+                    current = current.Next;
+                }
+            }
+
+            if (current == null) return false;
+
+            if (current.Prev == null)
+            {
+                Head = current.Next;
+                Head.Prev = null;
+                count--;
+                return true;
+            }
+            else if (current.Next == null)
+            {
+                Tail = current.Prev;
+                Tail.Next = null;
+                count--;
+                return true;
+            }
+
+            current.Prev.Next = current.Next;
+            count--;
+
+            logger.LogEvent += LoggerMethods.LogInFile;
+            logger.LogEvent += LoggerMethods.LogInConsole;
+            logger.InvokeLogEvent($"Пользователем был удален элемент по содержимому:\n {data.GetInfo()}");
+            logger.LogEvent -= LoggerMethods.LogInConsole;
+            logger.LogEvent -= LoggerMethods.LogInFile;
+
+            return true;
+        }
