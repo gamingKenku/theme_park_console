@@ -10,18 +10,37 @@ namespace theme_park_console
     {
         FerrisWheel,
         RollerCoaster,
-        BumpingCars
+        BumpingCars,
+        Undefined
     }
     class AmusementPark
     {
         public string Name { get; set; }
         public double Budget { get; set; }
+
+        private Logger logger;
+
         public AttractionLinkedList<Attraction> attractions;
         public AmusementPark(string name, double budget)
         {
             Name = name;
             Budget = budget;
             attractions = new AttractionLinkedList<Attraction>();
+            logger = new Logger();
+
+            logger.LogEvent += LoggerMethods.LogInConsole;
+            logger.LogEvent += LoggerMethods.LogInFile;
+        }
+        public static AttractionTypes GetAttractionType(Attraction attraction)
+        {
+            if (attraction.GetType() == typeof(FerrisWheel))
+                return AttractionTypes.FerrisWheel;
+            if (attraction.GetType() == typeof(RollerCoaster))
+                return AttractionTypes.RollerCoaster;
+            if (attraction.GetType() == typeof(BumpingCars))
+                return AttractionTypes.BumpingCars;
+
+            return AttractionTypes.Undefined;
         }
         public bool ConsoleCreateAttraction(AttractionTypes type, string name, double price)
         {
@@ -197,6 +216,21 @@ namespace theme_park_console
             attractions.Add(attraction);
             return true;
         }
-        
+        public void SaveListToXML()
+        {
+            XMLSerialiser serialiser = new XMLSerialiser();
+            serialiser.Serialise(attractions);
+
+            logger.InvokeLogEvent("Список аттракционов был сохранен в файл XML.");
+        }
+        public void LoadListFromXML()
+        {
+            logger.InvokeLogEvent("Пользователь начал процесс загрузки списка аттракционов из XML файла.");
+
+            XMLSerialiser serialiser = new XMLSerialiser();
+            attractions = serialiser.Deserialise();
+
+            logger.InvokeLogEvent("Список аттракционов был загружен из списка XML.");
+        }
     }
 }

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<attractions>
+  <attraction attraction_type="ferris_wheel">
+    <name>абвыввы</name>
+    <ticket_price>5</ticket_price>
+    <session_time>12</session_time>
+    <customers_group>144</customers_group>
+    <price>12,12</price>
+  </attraction>
+  <attraction attraction_type="roller_coaster">
+    <name>12в25ка</name>
+    <ticket_price>10</ticket_price>
+    <session_time>0,05999988000024</session_time>
+    <customers_group>144</customers_group>
+    <price>12,12</price>
+  </attraction>
+  <attraction attraction_type="bumping_cars">
+    <name>абырвалг</name>
+    <ticket_price>12,3624</ticket_price>
+    <session_time>4</session_time>
+    <customers_group>24</customers_group>
+    <price>12,12</price>
+  </attraction>
+  <attraction attraction_type="bumping_cars">
+    <name>абырвалг</name>
+    <ticket_price>12,3624</ticket_price>
+    <session_time>4</session_time>
+    <customers_group>24</customers_group>
+    <price>12,12</price>
+  </attraction>
+  <attraction attraction_type="bumping_cars">
+    <name>абырвалг</name>
+    <ticket_price>12,3624</ticket_price>
+    <session_time>4</session_time>
+    <customers_group>24</customers_group>
+    <price>12,12</price>
+  </attraction>
+  <attraction attraction_type="bumping_cars">
+    <name>абырвалг</name>
+    <ticket_price>12,3624</ticket_price>
+    <session_time>4</session_time>
+    <customers_group>24</customers_group>
+    <price>12,12</price>
+  </attraction>
+</attractions>

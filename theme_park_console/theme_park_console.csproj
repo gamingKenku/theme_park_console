@@ -58,7 +58,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="error_log.txt" />
     <Content Include="log.txt" />
     <Content Include="reserve.txt" />
     <Content Include="XMLFile1.xml" />

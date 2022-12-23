@@ -11,13 +11,15 @@ namespace theme_park_console
         static void Main()
         {
             AmusementPark park = new AmusementPark("Test", 10000.0);
-            XMLSerialisator serialisator = new XMLSerialisator();
 
-            park.CreateFerrisWheel("ferris_wheel", 12.12, 12.12, 12, 12, 12);
-            park.CreateRollerCoater("roller_coaster", 12.12, 12.12, 12.12, 12, 12, 12, 200);
-            park.CreateBumpingCars("bumping_cars", 12.12, 12, 12.12, 12.12);
-
-            serialisator.Serialise(park.attractions, @"C:\Users\ПК\source\repos\theme_park_console\theme_park_console\XMLFile1.xml");
+            park.CreateFerrisWheel("абвыввы", 12.12, 12.12, 12, 12, 12);
+            park.CreateRollerCoater("12в25ка", 12.12, 12.12, 12.12, 12, 12, 12, 200);
+            park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
+            park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
+            park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
+            park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
+            park.SaveListToXML();
+            park.LoadListFromXML();
 
             Console.ReadKey();
         }

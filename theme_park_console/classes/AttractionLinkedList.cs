@@ -91,23 +91,14 @@ namespace theme_park_console
             Tail = null;
             count = 0;
             logger = new Logger();
-
             logger.LogEvent += LoggerMethods.LogInConsole;
             logger.LogEvent += LoggerMethods.LogInFile;
+
             logger.InvokeLogEvent("Список был успешно создан.");
-            logger.LogEvent -= LoggerMethods.LogInConsole;
-            logger.LogEvent -= LoggerMethods.LogInFile;
-        }
-        private void Logger_LogEvent(string obj)
-        {
-            throw new NotImplementedException();
         }
         public void Add(T data)
         {
             Node<T> node = new Node<T>(data);
-
-            logger.LogEvent += LoggerMethods.LogInFile;
-            logger.LogEvent += LoggerMethods.LogInConsole;
 
             if (Head == null && Tail == null) // если список пуст, первый элемент будет началом и концом
             {
@@ -117,8 +108,6 @@ namespace theme_park_console
 
                 logger.InvokeLogEvent($"Пользователем был добавлен элемент в начало списка:\n{node.Data.GetInfo()}");
 
-                logger.LogEvent -= LoggerMethods.LogInConsole;
-                logger.LogEvent -= LoggerMethods.LogInFile;
                 return;
             }
 
@@ -127,9 +116,6 @@ namespace theme_park_console
             count += 1;
 
             logger.InvokeLogEvent($"Пользователем был добавлен элемент:\n{node.Data.GetInfo()}");
-
-            logger.LogEvent -= LoggerMethods.LogInConsole;
-            logger.LogEvent -= LoggerMethods.LogInFile;
         }
         public bool Remove(int position)
         {
@@ -138,9 +124,6 @@ namespace theme_park_console
                 return false;
             }
 
-            logger.LogEvent += LoggerMethods.LogInFile;
-            logger.LogEvent += LoggerMethods.LogInConsole;
-            
             int i = 0;
             Node <T> current = Head;
 
@@ -158,9 +141,6 @@ namespace theme_park_console
 
                 logger.InvokeLogEvent($"Пользователем был удален элемент по индексу {position}:\n{current.Data.GetInfo()}");
 
-                logger.LogEvent -= LoggerMethods.LogInConsole;
-                logger.LogEvent -= LoggerMethods.LogInFile;
-
                 return true;
             }
             else if (current.Next == null)
@@ -171,9 +151,6 @@ namespace theme_park_console
 
                 logger.InvokeLogEvent($"Пользователем был удален элемент по индексу {position}:\n{current.Data.GetInfo()}");
 
-                logger.LogEvent -= LoggerMethods.LogInConsole;
-                logger.LogEvent -= LoggerMethods.LogInFile;
-
                 return true;
             }
 
@@ -181,9 +158,6 @@ namespace theme_park_console
 
             current.Prev.Next = current.Next;
             count--;
-
-            logger.LogEvent -= LoggerMethods.LogInConsole;
-            logger.LogEvent -= LoggerMethods.LogInFile;
 
             return true;
         }
@@ -193,11 +167,7 @@ namespace theme_park_console
             Tail = null;
             count = 0;
 
-            logger.LogEvent += LoggerMethods.LogInFile;
-            logger.LogEvent += LoggerMethods.LogInConsole;
             logger.InvokeLogEvent("Список аттракционов был очищен пользователем.");
-            logger.LogEvent -= LoggerMethods.LogInConsole;
-            logger.LogEvent -= LoggerMethods.LogInFile;
         }
         public void Sort(SortType type)
         {
@@ -234,9 +204,6 @@ namespace theme_park_console
                 }
             }
 
-            logger.LogEvent += LoggerMethods.LogInFile;
-            logger.LogEvent += LoggerMethods.LogInConsole;
-
             switch(type)
             {
                 case SortType.NameSort:
@@ -249,9 +216,6 @@ namespace theme_park_console
                     logger.InvokeLogEvent("Список был отсортирован пользователем по длительностям сессий.");
                     break;
             }
-
-            logger.LogEvent -= LoggerMethods.LogInConsole;
-            logger.LogEvent -= LoggerMethods.LogInFile;
         }
         private bool NameCompare(Node<T> node, Node<T> next_node)
         {

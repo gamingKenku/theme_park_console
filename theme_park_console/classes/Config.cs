@@ -9,5 +9,6 @@ namespace theme_park_console
         private readonly static NameValueCollection appSettings = ConfigurationManager.AppSettings;
 
         public readonly static string Log_Path = appSettings["LogFile"];
+        public readonly static string XML_Path = appSettings["XMLPath"];
     }
 }
