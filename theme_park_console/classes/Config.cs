@@ -10,5 +10,6 @@ namespace theme_park_console
 
         public readonly static string Log_Path = appSettings["LogFile"];
         public readonly static string XML_Path = appSettings["XMLPath"];
+        public readonly static string JSON_Path = appSettings["JSONPath"];
     }
 }

@@ -12,13 +12,13 @@ namespace theme_park_console
         {
             AmusementPark park = new AmusementPark("Test", 10000.0);
 
-            park.CreateFerrisWheel("абвыввы", 12.12, 12.12, 12, 12, 12);
-            park.CreateRollerCoater("12в25ка", 12.12, 12.12, 12.12, 12, 12, 12, 200);
-            park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
-            park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
-            park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
-            park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
-            park.SaveListToXML();
+            //park.CreateFerrisWheel("абвыввы", 12.12, 12.12, 12, 12, 12);
+            //park.CreateRollerCoater("12в25ка", 12.12, 12.12, 12.12, 12, 12, 12, 200);
+            //park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
+            //park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
+            //park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
+            //park.CreateBumpingCars("абырвалг", 12.12, 12, 12.12, 12.12);
+
             park.LoadListFromXML();
 
             Console.ReadKey();

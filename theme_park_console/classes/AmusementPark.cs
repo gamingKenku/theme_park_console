@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace theme_park_console
 {
@@ -76,12 +72,12 @@ namespace theme_park_console
 
                         attraction = new FerrisWheel(name, price, height, period, cabins, wheel_passengers);
                     }
-                    catch(FormatException)
+                    catch (FormatException)
                     {
                         Console.WriteLine("Строка имеет неверный формат.");
                         return false;
                     }
-                    catch(AttractionException)
+                    catch (AttractionException)
                     {
                         Console.WriteLine("Нельзя создать аттракцион с такими параметрами!");
                         return false;
@@ -144,7 +140,7 @@ namespace theme_park_console
                         {
                             throw new FormatException();
                         }
-                        if (!int.TryParse(data[0], out cars) || !double.TryParse(data[1], out area) || 
+                        if (!int.TryParse(data[0], out cars) || !double.TryParse(data[1], out area) ||
                             !double.TryParse(data[2], out car_max_speed))
                         {
                             throw new AttractionException("Нельзя создать аттракцион с такими параметрами!");
@@ -175,7 +171,7 @@ namespace theme_park_console
 
             return true;
         }
-        public bool CreateFerrisWheel(string name, double price, double height, double rotation_period, 
+        public bool CreateFerrisWheel(string name, double price, double height, double rotation_period,
             int number_of_cabins, int customers_per_cabin)
         {
             Attraction attraction = new FerrisWheel(name,
@@ -188,7 +184,7 @@ namespace theme_park_console
             attractions.Add(attraction);
             return true;
         }
-        public bool CreateRollerCoater(string name, double price, double total_lenght, double average_speed, 
+        public bool CreateRollerCoater(string name, double price, double total_lenght, double average_speed,
             int number_of_vagons, int customers_per_vagon, double max_speed, double highest_point)
         {
             Attraction attraction = new RollerCoaster(name,
@@ -225,12 +221,28 @@ namespace theme_park_console
         }
         public void LoadListFromXML()
         {
-            logger.InvokeLogEvent("Пользователь начал процесс загрузки списка аттракционов из XML файла.");
+            logger.InvokeLogEvent("Пользователь начал процесс загрузки списка аттракционов из файла XML.");
 
             XMLSerialiser serialiser = new XMLSerialiser();
             attractions = serialiser.Deserialise();
 
-            logger.InvokeLogEvent("Список аттракционов был загружен из списка XML.");
+            logger.InvokeLogEvent("Список аттракционов был загружен из файла XML.");
+        }
+        public void SaveListToJSON()
+        {
+            JSONSerialiser serialiser = new JSONSerialiser();
+            serialiser.Serialise(attractions);
+
+            logger.InvokeLogEvent("Список аттракционов был сохранен в файл JSON.");
+        }
+        public void LoadListFromJSON()
+        {
+            logger.InvokeLogEvent("Пользователь начал процесс загрузки списка аттракционов из файла JSON.");
+
+            JSONSerialiser serialiser = new JSONSerialiser();
+            attractions = serialiser.Deserialise();
+
+            logger.InvokeLogEvent("Список аттракционов был загружен из файла JSON.");
         }
     }
 }

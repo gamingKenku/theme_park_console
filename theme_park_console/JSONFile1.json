@@ -1,0 +1,48 @@
+[
+  {e": "абвыввы",
+    "ticker_price": 5.0,
+    "customers_group": 144,
+    "session_time": 12.0,
+    "price": 12.12
+  },
+  {
+    "type": "roller_coaster",
+    "name": "12в25ка",
+    "ticker_price": 10.0,
+    "customers_group": 144,
+    "session_time": 0.05999988000024,
+    "price": 12.12
+  },
+  {
+    "type": "bumping_cars",
+    "name": "абырвалг",
+    "ticker_price": 12.3624,
+    "customers_group": 24,
+    "session_time": 4.0,
+    "price": 12.12
+  },
+  {
+    "type": "bumping_cars",
+    "name": "абырвалг",
+    "ticker_price": 12.3624,
+    "customers_group": 24,
+    "session_time": 4.0,
+    "price": 12.12
+  },
+  {
+    "type": "bumping_cars",
+    "name": "абырвалг",
+    "ticker_price": 12.3624,
+    "customers_group": 24,
+    "session_time": 4.0,
+    "price": 12.12
+  },
+  {
+    "type": "bumping_cars",
+    "name": "абырвалг",
+    "ticker_price": 12.3624,
+    "customers_group": 24,
+    "session_time": 4.0,
+    "price": 12.12
+  }
+]
